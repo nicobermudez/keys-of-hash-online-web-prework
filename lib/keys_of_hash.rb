@@ -1,14 +1,6 @@
 class Hash
   def keys_of(*arguments)
     # code goes here
-    array = []
-    self.each do |key, value|
-      arguments.each do |country|
-        if value == country
-          array.push(key)
-        end
-      end
-    end
-    array
+    self.collect {|key, value| arguments.include?(value) ? key : nil}.compact
   end
 end
